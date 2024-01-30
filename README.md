@@ -1,8 +1,10 @@
-# React + Vite
+# Neighbour
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[live demo](https://neighbour-three.vercel.app/)
 
-Currently, two official plugins are available:
+This project developed by using Vite.js + React. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project remembers things we type for 10 seconds and then deletes them completely.
+In this project, I mainly worked to improve my react skills.
+At the same time, it was an application that would enable a person to easily express their situation.
+
