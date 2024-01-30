@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { FaArrowAltCircleDown } from "react-icons/fa";
+
 const intro = [
     "Some days I feel I'd make a good sunset",
     "Some days I just don't wanna give up yet",
@@ -24,7 +26,7 @@ const introduction =
         "Now, tell me what is bothering you?"
     ];
 
-export function Introduction() {
+export function Introduction({ changePage }) {
     const [visibleItems, setVisibleItems] = useState([]);
     const [displayButton, setDisplayButton] = useState(false);
 
@@ -42,15 +44,19 @@ export function Introduction() {
         setTimeout(() => {
             clearTimeout(timeoutId);
             setDisplayButton(true);
-          }, introduction.length * delay);
-        
-          return () => {
-            clearTimeout(timeoutId); // Clear the timeout when the component is unmounted
-          };
-        }, []);
+        }, introduction.length * delay);
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, []);
+
+    const handleButtonClick = () => {
+        changePage(false)
+    }
 
     return (
-        <div className="Introduction">
+        <div className="Introduction CenterFlex">
             <h1>Hello Neighbour!</h1>
             {visibleItems.map((intro, index) => (
                 <p key={index} className="Intro">
@@ -58,7 +64,8 @@ export function Introduction() {
                 </p>
             ))
             }
-            {displayButton && <button> Ready!</button>
+            {displayButton && <button className="StartButton" onClick={handleButtonClick}> <FaArrowAltCircleDown />
+            </button>
             }
         </div >
     )

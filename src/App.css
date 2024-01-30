@@ -25,9 +25,18 @@ button {
   width: 95%;
 }
 
-.PassingThoughts h1:before {
+.PassingThoughts header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.PassingThoughts h1:first-of-type:before  {
   content: '💭';
   margin-right: 0.5em;
+}
+
+.PassingThoughts h1:nth-of-type(2) {
+  color: darkblue;
 }
 
 .Introduction h1:before {
@@ -79,9 +88,16 @@ button {
 
 /*    Introduction     */
 
+.CenterFlex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .Intro {
   margin: 10px 0;
   animation: fadeIn 1s forwards;
+  text-align: center;
 }
 
 @keyframes fadeIn {
@@ -90,5 +106,26 @@ button {
   }
   to {
     opacity: 1;
+  }
+}
+
+.StartButton {
+   border: none;
+   background-color: inherit;
+   font-size: 2rem;
+   animation: fadeIn 2s forwards;
+   animation: moving 2s infinite;
+   opacity: 70%;
+}
+
+@keyframes moving {
+  0% {
+    margin-top: 0;
+    }
+  50% {
+    margin-top: 0.5rem;
+  }
+  100%{
+    margin-top:0;
   }
 }
