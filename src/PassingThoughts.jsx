@@ -1,0 +1,51 @@
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import { AddThoughtForm } from "./assets/AddThoughtForm";
+import { Thought } from "./assets/Thought";
+import { generateId, getNewExpirationTime } from "./assets/utilities";
+
+import "./App.css";
+
+export default function PassingThoughts() {
+  const [thoughts, setThoughts] = useState([
+    {
+      id: generateId(),
+      text: "This is a place for your passing thoughts.",
+      expiresAt: getNewExpirationTime(),
+    },
+    {
+      id: generateId(),
+      text: "They'll be removed after 15 seconds.", 
+      expiresAt: getNewExpirationTime(),
+    },
+  ]);
+
+  const addThought = (thought) => {
+    setThoughts((thoughts) => [thought, ...thoughts]);
+  };
+
+  const removeThought = (thoughtIdToRemove) => {
+    setThoughts((thoughts) => thoughts.filter(thought => thought.id !== thoughtIdToRemove));
+  };
+
+  return (
+    <div className="PassingThoughts">
+      <header>
+        <h1>Passing Thoughts</h1>
+      </header>
+      <main>
+        <AddThoughtForm addThought={addThought} />
+        <ul className="thoughts">
+          {thoughts.map((thought) => (
+            <Thought
+              key={thought.id}
+              thought={thought}
+              removeThought={removeThought}
+            />
+          ))}
+        </ul>
+      </main>
+    </div>
+  );
+}
+
