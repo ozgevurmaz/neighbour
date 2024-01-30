@@ -7,7 +7,7 @@ import PassingThoughts from "./PassingThoughts";
 import { Introduction } from "./Introduction";
 
 export default function App() {
-  const [togglePage, setTogglePage] = useState(false)
+  const [togglePage, setTogglePage] = useState(true)
 
   const changePage = () => {
     console.log("click")
